@@ -1,18 +1,17 @@
-public abstract class Plane {
+public class Plane {
 
-    private int capacity;
-    private double totalWeightInKg;
+    private PlaneType planeType;
 
-    public Plane(int capacity, double totalWeightInKg) {
-        this.capacity = capacity;
-        this.totalWeightInKg = totalWeightInKg;
+
+    public Plane(PlaneType planeType) {
+      this.planeType = planeType;
     }
 
     public int getCapacity() {
-        return capacity;
+        return planeType.getCapacity();
     }
 
     public double getTotalWeightInKg() {
-        return totalWeightInKg;
+        return planeType.getTotalWeightInKg();
     }
 }

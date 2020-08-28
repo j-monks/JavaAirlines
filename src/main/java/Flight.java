@@ -10,9 +10,9 @@ public class Flight extends Plane{
     private String departureTime;
     private PlaneType planeType;
 
-    public Flight(int capacity, double totalWeightInKg, ArrayList<Passenger> bookedPassengers, Plane plane, String flightNumber, String destination, String departureAirport, String departureTime, PlaneType planeType) {
-        super(planeType.getCapacity(), planeType.getTotalWeightInKg());
-        this.bookedPassengers = bookedPassengers;
+    public Flight(ArrayList<Passenger> bookedPassengers, Plane plane, String flightNumber, String destination, String departureAirport, String departureTime, PlaneType planeType) {
+        super(planeType);
+        this.bookedPassengers = new ArrayList<Passenger>();
         this.plane = plane;
         this.flightNumber = flightNumber;
         this.destination = destination;
@@ -46,5 +46,21 @@ public class Flight extends Plane{
 
     public PlaneType getPlaneType() {
         return planeType;
+    }
+
+    public int getNumberOfAvailableSeats(ArrayList<Passenger> passengersArray) {
+        int capacity = this.getCapacity();
+        int total = 0;
+        for (int i = 0; i < passengersArray.size(); i++) {
+               total += 1;
+           }
+        int numberOfSeatsAvailable = capacity - total;
+        return numberOfSeatsAvailable;
+    }
+
+    public void bookPassenger(ArrayList<Passenger> passengersArray, Passenger passenger) {
+        if (getNumberOfAvailableSeats(passengersArray) >= 1) {
+            passengersArray.add(passenger);
+        }
     }
 }
