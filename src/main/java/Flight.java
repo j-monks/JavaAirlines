@@ -22,8 +22,8 @@ public class Flight {
         return bookedPassengers;
     }
 
-    public Plane getPlane() {
-        return plane;
+    public double getPlaneTotalBaggageWeight() {
+        return plane.getTotalWeightInKg();
     }
 
     public String getFlightNumber() {

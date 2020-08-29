@@ -40,9 +40,9 @@ public class FlightManagerTest {
         assertEquals(75.0, manager.getPassengersTotalBaggage(flight));
     }
 
-//    @Test
-//    public void getRemainingFlightReserveBaggage() {
-//        assertEquals();
-//    }
+    @Test
+    public void getRemainingFlightReserveBaggage() {
+        assertEquals(425.0, manager.getRemainingReserveBagAllowance(flight));
+    }
 
 }

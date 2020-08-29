@@ -18,4 +18,10 @@ public class FlightManager {
         return total * 25;
     }
 
+    public double getRemainingReserveBagAllowance(Flight flight) {
+        double passengersBaggage = this.getPassengersTotalBaggage(flight);
+        double totalBaggage = flight.getPlaneTotalBaggageWeight();
+        return totalBaggage - passengersBaggage;
+    }
+
 }
