@@ -46,6 +46,11 @@ public class Flight {
         return plane.getCapacity();
     }
 
+    public double getPlaneBaggageReserve() {
+        return plane.getTotalWeightInKg() / 2;
+    }
+
+
     public int getNumberOfAvailableSeats(ArrayList<Passenger> passengersArray) {
         int capacity = plane.getCapacity();
         int total = 0;
