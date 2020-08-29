@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Flight extends Plane{
+public class Flight {
 
     private ArrayList<Passenger> bookedPassengers;
     private Plane plane;
@@ -8,10 +8,8 @@ public class Flight extends Plane{
     private String destination;
     private String departureAirport;
     private String departureTime;
-    private PlaneType planeType;
 
-    public Flight(ArrayList<Passenger> bookedPassengers, Plane plane, String flightNumber, String destination, String departureAirport, String departureTime, PlaneType planeType) {
-        super(planeType);
+    public Flight(ArrayList<Passenger> bookedPassengers, Plane plane, String flightNumber, String destination, String departureAirport, String departureTime) {
         this.bookedPassengers = new ArrayList<Passenger>();
         this.plane = plane;
         this.flightNumber = flightNumber;
@@ -44,12 +42,12 @@ public class Flight extends Plane{
         return departureTime;
     }
 
-    public PlaneType getPlaneType() {
-        return planeType;
+    public int getPlaneCapacity() {
+        return plane.getCapacity();
     }
 
     public int getNumberOfAvailableSeats(ArrayList<Passenger> passengersArray) {
-        int capacity = this.getCapacity();
+        int capacity = plane.getCapacity();
         int total = 0;
         for (int i = 0; i < passengersArray.size(); i++) {
                total += 1;

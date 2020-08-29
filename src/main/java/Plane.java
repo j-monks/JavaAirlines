@@ -14,4 +14,8 @@ public class Plane {
     public double getTotalWeightInKg() {
         return planeType.getTotalWeightInKg();
     }
+
+    public PlaneType getPlaneType() {
+        return this.planeType;
+    }
 }

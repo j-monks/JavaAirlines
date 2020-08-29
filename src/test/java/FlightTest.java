@@ -7,8 +7,10 @@ import static org.junit.Assert.assertEquals;
 
 public class FlightTest {
 
-    private Plane plane1;
-    private Passenger bookedPassenger;
+    private Plane plane;
+    private Flight flight;
+    private Passenger passenger;
+    private Passenger passenger1;
     private ArrayList<Passenger> passengers;
     private String flightNumber;
     private String destination;
@@ -18,17 +20,29 @@ public class FlightTest {
 
     @Before
     public void before() {
-      plane1 = new Plane(planeType.BOEING747);
+        passenger = new Passenger("John", 2);
+        passenger1 = new Passenger("Jane", 1);
+        passengers = new ArrayList<Passenger>();
+        plane = new Plane(planeType.BOEING747);
+        flight = new Flight(passengers, plane, "FR756", "EDI", "GLA", "18:00");
+
     }
 
     @Test
     public void canGetPlaneCapacity() {
-        assertEquals(10, plane1.getCapacity());
+        assertEquals(10, plane.getCapacity());
     }
 
     @Test
     public void canGetPlaneTotalWeight() {
-        assertEquals(100.00, plane1.getTotalWeightInKg(), 0.5);
+        assertEquals(100.00, plane.getTotalWeightInKg(), 0.5);
+    }
+
+    @Test
+    public void getNumberOfAvailableSeats() {
+        passengers.add(passenger);
+        passengers.add(passenger1);
+        assertEquals(8, flight.getNumberOfAvailableSeats(passengers));
     }
 
 }
