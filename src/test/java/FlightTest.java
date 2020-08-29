@@ -39,9 +39,15 @@ public class FlightTest {
     }
 
     @Test
+    public void bookPassenger() {
+        flight.bookPassenger(passengers, passenger);
+        assertEquals(1, passengers.size());
+    }
+
+    @Test
     public void getNumberOfAvailableSeats() {
-        passengers.add(passenger);
-        passengers.add(passenger1);
+        flight.bookPassenger(passengers, passenger);
+        flight.bookPassenger(passengers, passenger1);
         assertEquals(8, flight.getNumberOfAvailableSeats(passengers));
     }
 
