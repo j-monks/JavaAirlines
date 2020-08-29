@@ -42,9 +42,18 @@ public class Flight {
         return departureTime;
     }
 
+    public int getPassengersBags(ArrayList<Passenger> passengersArray) {
+        int total = 0;
+        for (Passenger passenger : passengersArray) {
+           total = passenger.getNumberOfBags();
+        }
+        return total;
+    }
+
     public int getPlaneCapacity() {
         return plane.getCapacity();
     }
+
 
     public double getPlaneBaggageReserve() {
         return plane.getTotalWeightInKg() / 2;
@@ -61,9 +70,9 @@ public class Flight {
         return numberOfSeatsAvailable;
     }
 
-    public void bookPassenger(ArrayList<Passenger> passengersArray, Passenger passenger) {
-        if (getNumberOfAvailableSeats(passengersArray) >= 1) {
-            passengersArray.add(passenger);
+    public void bookPassenger( Passenger passenger) {
+        if (getNumberOfAvailableSeats(this.getBookedPassengers()) >= 1) {
+            this.getBookedPassengers().add(passenger);
         }
     }
 }
