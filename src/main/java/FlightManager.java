@@ -15,7 +15,7 @@ public class FlightManager {
         for (Passenger passenger : passengersArray) {
             total += passenger.getNumberOfBags();
         }
-        return total;
+        return total * 25;
     }
 
 }

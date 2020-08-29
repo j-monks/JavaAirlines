@@ -32,12 +32,17 @@ public class FlightManagerTest {
 
     @Test
     public void canGetBaggageAllowance() {
-        assertEquals(5.0, manager.getBaggageAllowance(flight));
+        assertEquals(25.0, manager.getBaggageAllowance(flight));
     }
 
     @Test
     public void getTotalPassengerBaggage() {
-        assertEquals(3.0, manager.getPassengersTotalBaggage(flight));
+        assertEquals(75.0, manager.getPassengersTotalBaggage(flight));
     }
+
+//    @Test
+//    public void getRemainingFlightReserveBaggage() {
+//        assertEquals();
+//    }
 
 }
